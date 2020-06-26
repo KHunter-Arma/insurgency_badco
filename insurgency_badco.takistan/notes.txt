@@ -1,0 +1,4 @@
+- mission vehicle selections
+- static weapons in arsenal
+- vehicle spawner
+- setskill?
