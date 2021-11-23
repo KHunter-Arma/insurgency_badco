@@ -83,11 +83,12 @@ onMapSingleClick "_shift";
 enableSentences false;
 
 //ACRE check
-[] spawn {
-	sleep 10;	
-	if ((isnil "acre_sys_io_serverStarted") || {!acre_sys_io_serverStarted}) then {
-		endMission "ACRE_disabled";
+if (isMultiplayer) then {
+	[] spawn {
+		sleep 10;	
+		if ((isnil "acre_sys_io_serverStarted") || {!acre_sys_io_serverStarted}) then {
+			endMission "ACRE_disabled";
+		};
 	};
 };
-
 #include "client\mainLoop.sqf"
