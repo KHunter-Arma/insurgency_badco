@@ -37,7 +37,7 @@ respawnTags = {
 		_txt   = "Main Base (Press Enter to Spawn)";
 		_color = "#2554C7";
 	};
-	if (lifeState camPlayer == "UNCONSCIOUS") then {
+	if (lifeState camPlayer == "INCAPACITATED") then {
 		_txt   = format["%1: %2 (Cannot spawn on a critically wounded soldier)", unitID(camPlayer), getName(camPlayer)]; 
 		_color = "#C11B17";
 	};
@@ -63,7 +63,7 @@ playerTags = {
 	_ctrlOffset = (uiNamespace getVariable 'TAGS_HUD') displayCtrl 64435; 	
 	_color = "#2554C7"; 
 	if (str _cT in squadUnitStrings(squadString(player))) then { _color = "#347C17"; };
-	if (lifeState _cT == "UNCONSCIOUS") then { _color = "#C11B17"; }; 
+	if (lifeState _cT == "INCAPACITATED") then { _color = "#C11B17"; }; 
 	if (lifeState _cT == "DEAD-RESPAWN") then { _color = "#736F6E"; }; 
 	_ctrlOffset ctrlSetStructuredText parseText format[
 		"<t color='%3' shadow='1' shadowColor='#000000'>%1<br/>%2</t>"

@@ -37,7 +37,7 @@ addActions = {
 	
 	if !isNil "actionHQMobilise" then { HQ removeAction actionHQMobilise; actionHQMobilise = nil; };
 	actionHQMobilise = HQ addAction ["Mobilise HQ","common\client\actions\noScript.sqf",'
-		if (lifeState player == "UNCONSCIOUS") exitWith {};
+		if (lifeState player == "INCAPACITATED") exitWith {};
 		if (mhqDeployTimer == -1) exitWith { hintsilent "The HQ is bolted in place, you cannot redeploy!"; };
 		_timePassed = HQ getVariable ["hqdT",0]; 
 		_dT = mhqDeployTimer - (time - _timePassed);

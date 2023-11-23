@@ -49,7 +49,7 @@ playerMarkers = {
 			_colour = "ColorBlue";
 			if (str _plr in squadUnitStrings(squadString(player))) then { _colour = "ColorGreen"; };
 			if (!alive _plr) then { _colour = "ColorBlack"; };
-			if (lifeState _plr == "UNCONSCIOUS") then { _colour = "ColorRed"; };
+			if (lifeState _plr == "INCAPACITATED") then { _colour = "ColorRed"; };
 			_x setMarkerColorLocal _colour;
 			_x setMarkerPosLocal getPosATL _plr;
 			_x setMarkerDirLocal getDir _plr; 

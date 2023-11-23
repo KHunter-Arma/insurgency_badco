@@ -126,7 +126,7 @@ nearest_Infantry = {
     
 	if (_type == "count") then { _result = 0; } else { _result = []; }; 
 	{
-		if (!(_x in westPlayerStrings) && { (alive _x && {(lifeState _x) != "UNCONSCIOUS"}) || {!_alive} } ) then {
+		if (!(_x in westPlayerStrings) && { (alive _x && {(lifeState _x) != "INCAPACITATED"}) || {!_alive} } ) then {
 			if (_type == "count") then { _result = _result + 1; } else { _result pushBack _x; };
 		};
 	} forEach _arr;
@@ -145,7 +145,7 @@ nearest_EastMen = {
 		_result = 0; 
 		{ 
 			{ 
-				if (((lifeState _x) != "UNCONSCIOUS") && {(typeOf _x) in eastInfClasses} ) then { 
+				if (((lifeState _x) != "INCAPACITATED") && {(typeOf _x) in eastInfClasses} ) then { 
 					_result = _result + 1;
 				};
 			} forEach crew _x; 
@@ -154,7 +154,7 @@ nearest_EastMen = {
 		_result = []; 
 		{ 
 			{ 
-				if (((lifeState _x) != "UNCONSCIOUS") && {(typeOf _x) in eastInfClasses} ) then { 
+				if (((lifeState _x) != "INCAPACITATED") && {(typeOf _x) in eastInfClasses} ) then { 
 					 _result pushBack _x;
 				};
 			} forEach crew _x; 
@@ -174,7 +174,7 @@ nearest_Men2 = {
     
 	if (_type == "count") then { _result = 0; } else { _result = []; }; 
 	{
-		if (!isDead(_x) && {_x isKindOf "Man"} && {!str _x in westPlayerStrings} && { (alive _x && {(lifeState _x) != "UNCONSCIOUS"}) || {!_alive} } ) then {
+		if (!isDead(_x) && {_x isKindOf "Man"} && {!str _x in westPlayerStrings} && { (alive _x && {(lifeState _x) != "INCAPACITATED"}) || {!_alive} } ) then {
 			if (_type == "count") then { _result = _result + 1; } else { _result set [count _result, _x]; };
 		};
 	} forEach _arr2;
@@ -250,7 +250,7 @@ arr_CanSee = {
     
 	_canSee = false;
 	{
-		if (alive _x && {(lifeState _x) != "UNCONSCIOUS"} && {(_x distance _pos <= _rng) || {canSee(_x,_pos,_arc)}}) exitWith { _canSee = true; };
+		if (alive _x && {(lifeState _x) != "INCAPACITATED"} && {(_x distance _pos <= _rng) || {canSee(_x,_pos,_arc)}}) exitWith { _canSee = true; };
 	} foreach _arr;
 	_canSee
 };

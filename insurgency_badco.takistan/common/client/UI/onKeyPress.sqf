@@ -51,12 +51,12 @@ onKeyPress = {
 
 		//W key
 		case 17: { 			
-			if (speed player == 0 && lifeState player != "UNCONSCIOUS") then { detach player; }; 		  
+			if (speed player == 0 && lifeState player != "INCAPACITATED") then { detach player; }; 		  
 		}; 
 		
 		//S key
 		case 31: { 	
-			if (speed player == 0 && lifeState player != "UNCONSCIOUS") then { detach player; }; 
+			if (speed player == 0 && lifeState player != "INCAPACITATED") then { detach player; }; 
 		}; 
 		
 		//Enter key
@@ -66,7 +66,7 @@ onKeyPress = {
 			if (!enterSpawn && camPlayer == fieldHospital) exitWith { enterSpawn = true; };
 			if (nearestEastMen(getPosATL camPlayer,respawnRange,true,"count") > 0) exitWith {};
 			if (vehicle camPlayer call vclisFull) exitWith {};
-			if (lifeState camPlayer == "UNCONSCIOUS") exitWith {};	
+			if (lifeState camPlayer == "INCAPACITATED") exitWith {};	
 			if !enterSpawn then { enterSpawn = true; };
 		};
 	

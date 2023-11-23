@@ -327,7 +327,7 @@ while { _loop} do {
 	};
 	
 	//Hunter: update enemies and point it to players 
-	_enemies = playableUnits select {(lifeState _x) != "UNCONSCIOUS"};
+	_enemies = playableUnits select {(lifeState _x) != "INCAPACITATED"};
 	
 	// did anybody in the group got hit?
 	_newdamage=0; 
